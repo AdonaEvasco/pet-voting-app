@@ -28,9 +28,10 @@ function App() {
   return (
     <div className="App">
       <h1>Vote for the Best Pet!</h1>
+      
       <div className="options-container">
         {pets.map((pet, index) => (
-          <PollOption
+          <PollOption 
             key={index}
             label={pet.option}
             count={pet.count}
@@ -38,6 +39,7 @@ function App() {
           />
         ))}
       </div>
+      
       <div className="leader-section">
         <h2>Current Leader:</h2>
         <p>{leader.option} with {leader.count} votes!</p>

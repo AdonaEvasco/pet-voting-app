@@ -1,35 +1,145 @@
+/* Modern Color Palette */
+:root {
+  --primary: #000000;
+  --secondary: #7c78bd;
+  --accent: #7da3ce;
+  --light: #f8f9fa;
+  --dark: #212529;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7ff;
+  margin: 0;
+  padding: 0;
+  color: var(--dark);
+}
+
 .App {
-  text-align: center;
-  padding: 20px;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
+h1 {
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: var(--accent);
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+/* Voting Options */
 .options-container {
-  display: flex;
-  justify-content: space-around;
-  margin: 30px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
 }
+
 .poll-option {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 8px;
-  width: 200px;
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid #e9ecef;
+  position: relative;
+  overflow: hidden;
 }
+
+.poll-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(138, 156, 235, 0.2);
+  border-color: var(--accent);
+}
+
+.poll-option h3 {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.poll-option p {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin: 1rem 0;
+}
+
+/* Vote Button */
 .poll-option button {
-  background-color: #4CAF50;
+  background: var(--primary);
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
   cursor: pointer;
-  margin-top: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  width: 80%;
+  margin-top: 1rem;
 }
+
 .poll-option button:hover {
-  background-color: #45a049;
+  background: var(--secondary);
+  transform: scale(1.05);
 }
+
+/* Leader Section */
 .leader-section {
-  margin-top: 30px;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 3rem;
+  text-align: center;
+  animation: pulse 2s infinite;
 }
+
+.leader-section h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.leader-section p {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+
+.poll-option::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 3rem;
+  opacity: 0.1;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.dog::before { content: "\f6d3"; } /* paw */
+.cat::before { content: "\f6be"; } /* cat */
+.rat::before { content: "\f6d3"; } /* paw */
